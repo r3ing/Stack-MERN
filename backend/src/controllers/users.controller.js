@@ -24,14 +24,14 @@ usersCtrl.getUser = async (req, res) => {
 }
 
 usersCtrl.updateUser = async (req, res) => {
-    await User.findOneAndUpdate(req.params.id, req.body);
+    await User.findByIdAndUpdate(req.params.id, req.body);
     res.send({
         message: 'User updated'
     });
 }
 
 usersCtrl.deleteUser = async (req, res) => {
-    await User.findOneAndDelete(req.params.id);
+    await User.findByIdAndDelete(req.params.id);
     res.send({
         message: 'User deleted'
     });
